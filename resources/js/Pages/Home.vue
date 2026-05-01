@@ -88,6 +88,27 @@ const type = () => {
     type();
 });
 
+const eventsSectionRef = ref(null);
+const featuresSectionRef = ref(null);
+const howItWorksSectionRef = ref(null);
+
+const observeReveal = (elementRef) => {
+    useIntersectionObserver(elementRef, ([entry]) => {
+
+        if (entry.isIntersecting && elementRef.value) {
+
+            elementRef.value.classList.remove('opacity-0', 'translate-y-10');
+            elementRef.value.classList.add('opacity-100', 'translate-y-0');
+        }
+    }, { threshold: 0.1 }); 
+};
+
+onMounted(() => {
+    observeReveal(eventsSectionRef);
+    observeReveal(featuresSectionRef);
+    observeReveal(howItWorksSectionRef);
+});
+
 const submitSearch = () => {
     let params = {};
     if (searchQuery.value) params.search = searchQuery.value;
@@ -210,7 +231,10 @@ const submitSearch = () => {
             </div>
         </section>
 
-        <section class="container mx-auto px-6 mb-20 flex-grow animate-fade-in-up-delay-3 opacity-0">
+        <section 
+            ref="eventsSectionRef" 
+            class="container mx-auto px-6 mb-20 flex-grow opacity-0 translate-y-10 transition-all duration-1000 ease-out"
+        >
             <div
                 class="flex justify-between items-end mb-6 border-b border-gray-100 pb-4"
             >
@@ -341,7 +365,10 @@ const submitSearch = () => {
         </section>
 
         <!-- Feature Section -->
-        <section class="py-24 bg-white overflow-hidden relative">
+        <section 
+            ref="featuresSectionRef" 
+            class="py-24 bg-white overflow-hidden relative opacity-0 translate-y-10 transition-all duration-1000 ease-out"
+        >
             <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-rose-50 rounded-full blur-3xl opacity-50 z-0"></div>
             
             <div class="container mx-auto px-6 relative z-10">
@@ -400,7 +427,10 @@ const submitSearch = () => {
         </section>
 
         <!-- How It Works Section -->
-        <section class="py-24 bg-gray-50 border-t border-gray-200">
+        <section 
+            ref="howItWorksSectionRef" 
+            class="py-24 bg-gray-50 border-t border-gray-200 opacity-0 translate-y-10 transition-all duration-1000 ease-out"
+        >
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="flex flex-col md:flex-row items-center gap-16">
                     <div class="w-full md:w-1/2">

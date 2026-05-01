@@ -24,7 +24,21 @@ TIXEVENT adalah website platform e-ticketing modern yang dirancang untuk manajem
 Sistem ini memfasilitasi dua sisi pengguna:
 - **Frontend (Pembeli):** Katalog event dinamis, pembelian tiket, klaim voucher diskon, dan e-ticket digital (PDF & QR Code).
 - **Backend (Panitia):** Dashboard analitik Filament yang responsif, manajemen event, verifikasi manual, scanner QR code langsung dari sistem, dan ekspor laporan.
+## Fitur Utama
 
+**Frontend (Portal Pembeli)**
+- Katalog event interaktif dengan filter kategori dan pencarian.
+- Sistem *checkout* tiket dengan pembatasan kuota dan batas waktu pembayaran otomatis (Redis Queue).
+- Klaim dan validasi kode voucher diskon.
+- *E-Ticket* digital dilengkapi QR Code unik.
+- Unduh tiket dalam format PDF.
+
+**Backend (Filament Admin Panel)**
+- Dashboard analitik interaktif (statistik penjualan, pendapatan, tren).
+- Manajemen CRUD Event, Kategori, Tiket, dan Voucher.
+- Verifikasi pembayaran manual.
+- **QR Code Scanner** terintegrasi di sistem untuk *check-in* peserta di lokasi event.
+- *Export* data transaksi dan peserta ke format CSV/Excel.
 ---
 
 ## Cuplikan Layar (Screenshots)
@@ -58,6 +72,11 @@ Project ini menggunakan arsitektur **VILT Stack** modern dengan performa tinggi 
 ---
 
 ## Panduan Instalasi (Setup Guide)
+
+<p align="center">
+  <b><i>Proyek ini dikembangkan di Arch Linux dengan Fish Shell untuk performa maksimal.</i></b>
+</p>
+
 
 Aplikasi ini menggunakan Docker (Laravel Sail) untuk standarisasi lingkungan kerja. Anda tidak perlu menginstal PHP, MySQL, atau Redis secara native di komputer Anda.
 
@@ -96,7 +115,7 @@ Nyalakan seluruh server (PHP, Nginx, MySQL, Redis) di latar belakang:
 ```bash
 ./vendor/bin/sail up -d
 ```
-
+*(Saya sarankan untuk membuat alias `alias sail="bash vendor/bin/sail"` agar lebih mudah mengetik perintah).*
 **5. Inisialisasi Database & Storage**
 Lakukan generate key, jalankan migrasi tabel beserta *seeder* awal, dan hubungkan direktori storage:
 ```bash
@@ -140,3 +159,10 @@ Untuk masuk ke halaman admin, gunakan akun yang dibuat oleh *Seeder*, atau buat 
 ```bash
 ./vendor/bin/sail artisan make:filament-user
 ```
+
+## Alur Pengujian (Testing Flow)
+Untuk menguji fungsionalitas utama aplikasi, ikuti langkah berikut:
+1. Login sebagai **User**, pilih event, masukkan voucher (opsional), dan selesaikan *checkout*.
+2. Karena sistem pembayaran masih berupa simulasi manual, login ke **Admin Panel** dan ubah status pesanan menjadi `Paid`.
+3. Kembali ke dashboard User, buka menu "Tiket Saya", dan unduh tiket sebagai PNG atau PDF.
+4. Di Admin Panel, gunakan fitur Scanner untuk men-scan QR Code pada tiket PDF tersebut atau manual via Attendee.
