@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  <img src="https://raw.githubusercontent.com/filamentphp/filament/refs/heads/4.x/art/banner.webp" width="400" alt="Filament">
 
-  <h1>🎟️ TIXEVENT - UKK 2026 🎟️</h1>
+  <h1>TIXEVENT - UKK 2026</h1>
   <p><strong>Platform E-Ticketing Modern dengan Arsitektur VILT Stack</strong></p>
 
   <!-- Badges -->
@@ -11,6 +11,8 @@
     <img src="https://img.shields.io/badge/Vue.js-3.5.33-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue">
     <img src="https://img.shields.io/badge/Filament-5.6.1-FBBF24?style=for-the-badge&logo=laravel&logoColor=black" alt="Filament">
     <img src="https://img.shields.io/badge/TailwindCSS-4.2.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind">
+    <img src="https://img.shields.io/badge/Inertia.js-2.3.21-4FC08D?style=for-the-badge&logo=inertia.js&logoColor=white" alt="Inertia.js">
+    <img src="https://img.shields.io/badge/Linux-2496ED?style=for-the-badge&logo=linux&logoColor=white" alt="Linux">
     <img src="https://img.shields.io/badge/Docker-Sail-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
   </p>
 </div>
@@ -19,16 +21,15 @@
 
 TIXEVENT adalah website platform e-ticketing modern yang dirancang untuk manajemen dan penjualan tiket event. Project ini dibangun khusus untuk memenuhi standar **Ujian Kompetensi Keahlian (UKK) 2026**.
 
-Sistem ini memfasilitasi dua sisi pengguna secara *seamless*:
-- 🛍️ **Frontend (Pembeli):** Katalog event dinamis, pembelian tiket, klaim voucher diskon, dan e-ticket digital (PDF & QR Code).
-- 🎛️ **Backend (Panitia):** Dashboard analitik Filament yang responsif, manajemen event, verifikasi manual, *scanner* QR code langsung dari sistem, dan ekspor laporan.
+Sistem ini memfasilitasi dua sisi pengguna:
+- **Frontend (Pembeli):** Katalog event dinamis, pembelian tiket, klaim voucher diskon, dan e-ticket digital (PDF & QR Code).
+- **Backend (Panitia):** Dashboard analitik Filament yang responsif, manajemen event, verifikasi manual, scanner QR code langsung dari sistem, dan ekspor laporan.
 
 ---
 
-## 📸 Cuplikan Layar (Screenshots)
+## Cuplikan Layar (Screenshots)
 
 <div align="center">
-  <!-- Ganti path/link gambar di bawah ini dengan screenshot asli dari aplikasi Anda -->
   <img src="docs/screenshots/landing.png" alt="Tampilan Landing Page" width="800">
   <p><em>Halaman Utama (Frontend)</em></p>
 
@@ -38,7 +39,7 @@ Sistem ini memfasilitasi dua sisi pengguna secara *seamless*:
 
 ---
 
-## 🏗️ Arsitektur & Teknologi
+## Arsitektur & Teknologi
 
 Project ini menggunakan arsitektur **VILT Stack** modern dengan performa tinggi dan berbagai integrasi pihak ketiga:
 
@@ -49,22 +50,22 @@ Project ini menggunakan arsitektur **VILT Stack** modern dengan performa tinggi 
 - **Database & Cache:** MySQL, Redis.
 
 ### Library Utama
-- 📄 `barryvdh/laravel-dompdf` (Pembuatan e-ticket berformat PDF)
-- 🔲 `simplesoftwareio/simple-qrcode` (Pembuatan QR Code unik per tiket)
-- 📊 Filament Exporter (Ekstrak laporan CSV & XLSX)
-- 🐳 **Environment:** Laravel Sail (Docker).
+- `barryvdh/laravel-dompdf` (Pembuatan e-ticket berformat PDF)
+- `simplesoftwareio/simple-qrcode` (Pembuatan QR Code unik per tiket)
+- Filament Exporter (Ekstrak laporan CSV & XLSX)
+- **Environment:** Laravel Sail (Docker).
 
 ---
 
-## 🚀 Panduan Instalasi (Setup Guide)
+## Panduan Instalasi (Setup Guide)
 
-Aplikasi ini menggunakan Docker (Laravel Sail) untuk standarisasi lingkungan kerja. Anda tidak perlu repot menginstal PHP, MySQL, atau Redis secara native di komputer Anda.
+Aplikasi ini menggunakan Docker (Laravel Sail) untuk standarisasi lingkungan kerja. Anda tidak perlu menginstal PHP, MySQL, atau Redis secara native di komputer Anda.
 
-### 📌 Prasyarat Sistem
+### Prasyarat Sistem
 - **Pengguna Windows:** Sangat disarankan menggunakan **WSL2** (Windows Subsystem for Linux) dan Docker Desktop dengan integrasi WSL2 yang aktif. Semua perintah CLI di bawah ini harus dijalankan di terminal Linux (Ubuntu) melalui WSL.
-- **Pengguna Linux / macOS:** Cukup pastikan Docker Engine dan Docker Compose telah terinstal dan berjalan.
+- **Pengguna Linux / macOS:** Pastikan Docker Engine dan Docker Compose telah terinstal dan berjalan.
 
-### 🛠️ Langkah-langkah Setup
+### Langkah-langkah Setup
 
 **1. Clone Repositori**
 ```bash
@@ -113,7 +114,7 @@ Lakukan generate key, jalankan migrasi tabel beserta *seeder* awal, dan hubungka
 
 ---
 
-## ⚙️ Menjalankan Background Task
+## Menjalankan Background Task
 
 Platform ini menggunakan **Redis** untuk antrean tugas asinkron (Queue) seperti pembatalan tiket otomatis jika batas waktu pembayaran habis. Anda harus menjalankan worker pada *tab terminal yang terpisah*:
 
@@ -129,7 +130,7 @@ Platform ini menggunakan **Redis** untuk antrean tugas asinkron (Queue) seperti 
 
 ---
 
-## 🌍 Akses Aplikasi
+## Akses Aplikasi
 
 Aplikasi TIXEVENT Anda kini siap digunakan! Buka melalui browser:
 - **Frontend (Pembeli):** `http://localhost`
@@ -139,8 +140,3 @@ Untuk masuk ke halaman admin, gunakan akun yang dibuat oleh *Seeder*, atau buat 
 ```bash
 ./vendor/bin/sail artisan make:filament-user
 ```
-
-<div align="center">
-  <br>
-  <i>Dibuat dengan ❤️ untuk Ujian Kompetensi Keahlian 2026.</i>
-</div>
