@@ -159,7 +159,7 @@ Platform ini menggunakan **Redis** untuk antrean tugas asinkron (Queue) seperti 
 
 ## Akses Aplikasi
 
-Aplikasi TIXEVENT Anda kini siap digunakan! Buka melalui browser:
+Buka melalui browser:
 - **Frontend (Pembeli):** `http://localhost`
 - **Admin Panel (Panitia):** `http://localhost/admin`
 
@@ -185,6 +185,6 @@ Aplikasi ini dilengkapi dengan data dummy untuk memudahkan pengujian. Gunakan kr
 ## Alur Pengujian (Testing Flow)
 Untuk menguji fungsionalitas utama aplikasi, ikuti langkah berikut:
 1. Login sebagai **User**, pilih event, masukkan voucher (opsional), dan selesaikan *checkout*.
-2. Karena sistem pembayaran masih berupa simulasi manual, login ke **Admin Panel** dan ubah status pesanan menjadi `Paid`.
+2. Karena sistem pembayaran masih berupa simulasi manual, login ke **Admin Panel** atau **Petugas Panel**, lalu ke halaman **Orders** dan ubah status pesanan menjadi `Paid`.
 3. Kembali ke dashboard User, buka menu "Tiket Saya", dan unduh tiket sebagai PNG atau PDF.
 4. Di Admin Panel, gunakan fitur Scanner untuk men-scan QR Code pada tiket PDF tersebut atau manual via Attendee.
