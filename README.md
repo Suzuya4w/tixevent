@@ -60,6 +60,7 @@ Project ini menggunakan arsitektur **VILT Stack** modern dengan performa tinggi 
 ### Core Stack
 - **Frontend:** Vue.js 3.5.33 (Composition API), Inertia.js 2.3.21, Vite 6.0.6, Tailwind CSS 4.2.4.
 - **Backend:** Laravel 13.6.0, PHP 8.5.5, Livewire 4.2.4.
+- **Authentication:** Laravel Breeze (Inertia Vue Scaffolding).
 - **Admin Panel:** Filament v5.6.1.
 - **Database & Cache:** MySQL, Redis.
 
@@ -109,6 +110,12 @@ Gandakan file environment:
 cp .env.example .env
 ```
 *(Catatan: Konfigurasi `.env.example` sudah disesuaikan secara bawaan untuk Laravel Sail).*
+```bash
+CACHE_STORE=redis
+SESSION_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
+*(Ubah cache, session, dan queue di .env ke Redis agar dapat menggunakan fitur Redis Queue dan Redis Scheduler)*
 
 **4. Jalankan Kontainer Docker**
 Nyalakan seluruh server (PHP, Nginx, MySQL, Redis) di latar belakang:
@@ -119,6 +126,7 @@ Nyalakan seluruh server (PHP, Nginx, MySQL, Redis) di latar belakang:
 **5. Inisialisasi Database & Storage**
 Lakukan generate key, jalankan migrasi tabel beserta *seeder* awal, dan hubungkan direktori storage:
 ```bash
+./vendor/bin/sail artisan config:clear
 ./vendor/bin/sail artisan key:generate
 ./vendor/bin/sail artisan migrate:fresh --seed
 ./vendor/bin/sail artisan storage:link
@@ -155,10 +163,24 @@ Aplikasi TIXEVENT Anda kini siap digunakan! Buka melalui browser:
 - **Frontend (Pembeli):** `http://localhost`
 - **Admin Panel (Panitia):** `http://localhost/admin`
 
-Untuk masuk ke halaman admin, gunakan akun yang dibuat oleh *Seeder*, atau buat akun Super Admin baru dengan perintah:
-```bash
-./vendor/bin/sail artisan make:filament-user
-```
+---
+
+### Akun Pengujian (Default Credentials)
+Aplikasi ini dilengkapi dengan data dummy untuk memudahkan pengujian. Gunakan kredensial berikut untuk login:
+
+**Admin / Panitia (Filament Dashboard)**
+- Email: `admin@tixevent.com`
+- Password: `password`
+
+**Petugas (Filament Dashboard)**
+- Email: `petugas@tixevent.com`
+- Password: `password`
+
+**User / Pembeli**
+- Email: `user@tixevent.com`
+- Password: `password`
+
+---
 
 ## Alur Pengujian (Testing Flow)
 Untuk menguji fungsionalitas utama aplikasi, ikuti langkah berikut:
