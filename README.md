@@ -1,33 +1,70 @@
-# TIXEVENT
+<div align="center">
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
 
-TIXEVENT adalah platform e-ticketing modern yang dirancang untuk manajemen dan penjualan tiket event. Project ini dibangun khusus untuk memenuhi standar Ujian Kompetensi Keahlian (UKK) 2026.
+  <h1>🎟️ TIXEVENT - UKK 2026 🎟️</h1>
+  <p><strong>Platform E-Ticketing Modern dengan Arsitektur VILT Stack</strong></p>
 
-Sistem ini memfasilitasi dua sisi pengguna:
-- **Frontend (Pembeli):** Katalog event, pembelian tiket, klaim voucher diskon, dan download e-ticket PDF yang terintegrasi dengan sistem QR Code.
-- **Backend (Panitia/Admin):** Dashboard analitik, manajemen event dan kuota, verifikasi pembayaran manual, scanner QR code untuk check-in kehadiran, dan export laporan data dalam format CSV.
+  <!-- Badges -->
+  <p>
+    <img src="https://img.shields.io/badge/Laravel-13.6.0-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+    <img src="https://img.shields.io/badge/PHP-8.5.5-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+    <img src="https://img.shields.io/badge/Vue.js-3.5.33-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue">
+    <img src="https://img.shields.io/badge/Filament-5.6.1-FBBF24?style=for-the-badge&logo=laravel&logoColor=black" alt="Filament">
+    <img src="https://img.shields.io/badge/TailwindCSS-4.2.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind">
+    <img src="https://img.shields.io/badge/Docker-Sail-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  </p>
+</div>
 
-## Arsitektur & Teknologi
+---
 
-Project ini menggunakan arsitektur VILT Stack dengan berbagai integrasi pihak ketiga:
-- **Frontend:** Vue.js 3 (Composition API), Inertia.js, Tailwind CSS.
-- **Backend:** Laravel 11.
-- **Admin Panel:** Filament v3.
+TIXEVENT adalah website platform e-ticketing modern yang dirancang untuk manajemen dan penjualan tiket event. Project ini dibangun khusus untuk memenuhi standar **Ujian Kompetensi Keahlian (UKK) 2026**.
+
+Sistem ini memfasilitasi dua sisi pengguna secara *seamless*:
+- 🛍️ **Frontend (Pembeli):** Katalog event dinamis, pembelian tiket, klaim voucher diskon, dan e-ticket digital (PDF & QR Code).
+- 🎛️ **Backend (Panitia):** Dashboard analitik Filament yang responsif, manajemen event, verifikasi manual, *scanner* QR code langsung dari sistem, dan ekspor laporan.
+
+---
+
+## 📸 Cuplikan Layar (Screenshots)
+
+<div align="center">
+  <!-- Ganti path/link gambar di bawah ini dengan screenshot asli dari aplikasi Anda -->
+  <img src="docs/screenshots/landing.png" alt="Tampilan Landing Page" width="800">
+  <p><em>Halaman Utama (Frontend)</em></p>
+
+  <img src="docs/screenshots/admin.png" alt="Tampilan Admin Dashboard" width="800">
+  <p><em>Halaman Admin Dashboard (Filament)</em></p>
+</div>
+
+---
+
+## 🏗️ Arsitektur & Teknologi
+
+Project ini menggunakan arsitektur **VILT Stack** modern dengan performa tinggi dan berbagai integrasi pihak ketiga:
+
+### Core Stack
+- **Frontend:** Vue.js 3.5.33 (Composition API), Inertia.js 2.3.21, Vite 6.0.6, Tailwind CSS 4.2.4.
+- **Backend:** Laravel 13.6.0, PHP 8.5.5, Livewire 4.2.4.
+- **Admin Panel:** Filament v5.6.1.
 - **Database & Cache:** MySQL, Redis.
-- **Library Utama:**
-  - `barryvdh/laravel-dompdf` (Pembuatan e-ticket berformat PDF)
-  - `simplesoftwareio/simple-qrcode` (Pembuatan QR Code unik per tiket)
-  - Filament Exporter (Ekstraksi laporan CSV)
-- **Environment:** Laravel Sail (Docker).
 
-## Panduan Instalasi
+### Library Utama
+- 📄 `barryvdh/laravel-dompdf` (Pembuatan e-ticket berformat PDF)
+- 🔲 `simplesoftwareio/simple-qrcode` (Pembuatan QR Code unik per tiket)
+- 📊 Filament Exporter (Ekstrak laporan CSV & XLSX)
+- 🐳 **Environment:** Laravel Sail (Docker).
 
-Aplikasi ini menggunakan Docker (Laravel Sail) untuk standarisasi lingkungan kerja. Anda tidak perlu menginstal PHP atau MySQL secara native di komputer Anda.
+---
 
-### Prasyarat Sistem (Penting)
-- **Pengguna Windows:** Sangat disarankan/wajib menggunakan **WSL2** (Windows Subsystem for Linux) dan Docker Desktop dengan integrasi WSL2 yang aktif. Semua perintah CLI di bawah ini harus dijalankan di terminal Linux (Ubuntu) melalui WSL.
+## 🚀 Panduan Instalasi (Setup Guide)
+
+Aplikasi ini menggunakan Docker (Laravel Sail) untuk standarisasi lingkungan kerja. Anda tidak perlu repot menginstal PHP, MySQL, atau Redis secara native di komputer Anda.
+
+### 📌 Prasyarat Sistem
+- **Pengguna Windows:** Sangat disarankan menggunakan **WSL2** (Windows Subsystem for Linux) dan Docker Desktop dengan integrasi WSL2 yang aktif. Semua perintah CLI di bawah ini harus dijalankan di terminal Linux (Ubuntu) melalui WSL.
 - **Pengguna Linux / macOS:** Cukup pastikan Docker Engine dan Docker Compose telah terinstal dan berjalan.
 
-### Langkah-langkah Setup
+### 🛠️ Langkah-langkah Setup
 
 **1. Clone Repositori**
 ```bash
@@ -36,7 +73,7 @@ cd tixevent
 ```
 
 **2. Instalasi Dependensi PHP**
-Instal seluruh package menggunakan image composer bawaan Docker:
+Instal seluruh package backend menggunakan image composer bawaan Docker:
 ```bash
 docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -51,35 +88,34 @@ Gandakan file environment:
 ```bash
 cp .env.example .env
 ```
-*(Catatan: Konfigurasi `.env.example` sudah disesuaikan secara bawaan untuk Laravel Sail, termasuk kredensial host `mysql` dan koneksi `redis`).*
+*(Catatan: Konfigurasi `.env.example` sudah disesuaikan secara bawaan untuk Laravel Sail).*
 
 **4. Jalankan Kontainer Docker**
-Nyalakan server di latar belakang:
+Nyalakan seluruh server (PHP, Nginx, MySQL, Redis) di latar belakang:
 ```bash
 ./vendor/bin/sail up -d
 ```
 
-**5. Setup Aplikasi**
-Lakukan generate key, jalankan migrasi tabel beserta *seeder* awal, dan hubungkan direktori storage untuk akses gambar:
+**5. Inisialisasi Database & Storage**
+Lakukan generate key, jalankan migrasi tabel beserta *seeder* awal, dan hubungkan direktori storage:
 ```bash
 ./vendor/bin/sail artisan key:generate
 ./vendor/bin/sail artisan migrate:fresh --seed
 ./vendor/bin/sail artisan storage:link
 ```
 
-**6. Compile Aset Frontend**
-Kompilasi library Vue dan file Tailwind CSS:
+**6. Compile Aset Frontend (Vue & Tailwind)**
 ```bash
 ./vendor/bin/sail npm install
 ./vendor/bin/sail npm run build
 ```
-*(Gunakan `./vendor/bin/sail npm run dev` apabila Anda sedang dalam proses pengembangan).*
+*(Gunakan `./vendor/bin/sail npm run dev` jika Anda ingin melakukan modifikasi secara live).*
 
 ---
 
-## Menjalankan Background Task (Queue & Scheduler)
+## ⚙️ Menjalankan Background Task
 
-Platform ini menggunakan Redis untuk antrean tugas asinkron, seperti pembatalan tiket otomatis jika melewati batas waktu pembayaran. Anda harus menjalankan worker pada *tab terminal yang terpisah*:
+Platform ini menggunakan **Redis** untuk antrean tugas asinkron (Queue) seperti pembatalan tiket otomatis jika batas waktu pembayaran habis. Anda harus menjalankan worker pada *tab terminal yang terpisah*:
 
 **Worker untuk Eksekusi Antrean (Queue):**
 ```bash
@@ -93,13 +129,18 @@ Platform ini menggunakan Redis untuk antrean tugas asinkron, seperti pembatalan 
 
 ---
 
-## Akses Aplikasi
+## 🌍 Akses Aplikasi
 
-Aplikasi siap digunakan melalui web browser pada alamat berikut:
+Aplikasi TIXEVENT Anda kini siap digunakan! Buka melalui browser:
 - **Frontend (Pembeli):** `http://localhost`
 - **Admin Panel (Panitia):** `http://localhost/admin`
 
-Untuk masuk ke halaman admin, silakan gunakan akun yang dibuat secara otomatis oleh `DatabaseSeeder`, atau buat pengguna admin baru secara mandiri melalui terminal:
+Untuk masuk ke halaman admin, gunakan akun yang dibuat oleh *Seeder*, atau buat akun Super Admin baru dengan perintah:
 ```bash
 ./vendor/bin/sail artisan make:filament-user
 ```
+
+<div align="center">
+  <br>
+  <i>Dibuat dengan ❤️ untuk Ujian Kompetensi Keahlian 2026.</i>
+</div>
