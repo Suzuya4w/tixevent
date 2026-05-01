@@ -28,6 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->default()
             ->login()
+            ->brandName('TixEvent')
             ->databaseNotifications()
             ->databaseNotificationsPolling('5s')
             ->colors([

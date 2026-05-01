@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/filamentphp/filament/refs/heads/4.x/art/banner.webp" width="400" alt="Filament">
+  <img src="https://raw.githubusercontent.com/filamentphp/filament/refs/heads/4.x/art/banner.webp" alt="Filament">
 
-  <h1>TIXEVENT - UKK 2026</h1>
+  <h1>TIXEVENT 2026</h1>
   <p><strong>Platform E-Ticketing Modern dengan Arsitektur VILT Stack</strong></p>
 
   <!-- Badges -->
